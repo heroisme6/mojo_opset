@@ -99,9 +99,12 @@ def test_layer_norm_infer(benchmark, perf_environment, shape, dtype):
         for op, shape in [
             *[
                 ("residual_add_rms_norm_infer", shape)
-                for shape in [(128, 128), (32, 1024), (64, 8192), (57, 7338), (2, 256)]
+                for shape in [(128, 128), (32, 1024), (64, 8192), (57, 7338), (2, 256), (7762, 18778)]
             ],
-            ("residual_add_layer_norm_infer", (128, 128)),
+            *[
+                ("residual_add_layer_norm_infer", shape)
+                for shape in [(128, 128), (32, 1024), (64, 8192), (57, 7338), (2, 256), (7762, 18778)]
+            ],
         ]
     ],
 )

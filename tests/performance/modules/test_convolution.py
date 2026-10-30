@@ -15,6 +15,9 @@ from mojo_opset import modules
         (2, 64, 128, 3, None),
         (3, 1446, 256, 4, None),
         (1, 32, 32, 4, None),
+        (1, 2048, 4096, 4, "swish"),
+        (1, 8192, 4096, 4, "swish"),
+        (3, 777, 1536, 4, None),
     ],
 )
 def test_causal_conv1d_update_state(benchmark, perf_environment, batch, tokens, channels, width, activation):
